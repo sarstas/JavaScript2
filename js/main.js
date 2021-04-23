@@ -7,8 +7,9 @@ class GoodsItem {
    }
    render() {
       return `<div class="products__card">
-               <h3>${this.title}</h3>
-               <p>${this.price}</p>
+                  <h3 class="products__title">${this.title}</h3>
+                  <p class="products__price">price: <span class="products__price-col">${this.price}</span> rub</p>
+                  <button class="products__btn by-btn">Add to card</button>
                </div>`;
    }
 }
@@ -20,10 +21,10 @@ class GoodsList {
 
    fetchGoods() {
       this.goods = [
-         { title: 'Shirt', price: 150 },
-         { title: 'Socks', price: 50 },
-         { title: 'Jacket', price: 350 },
-         { title: 'Shoes', price: 250 },
+         {id: 1, title: 'Notebook', price: 20000},
+         {id: 2, title: 'Mouse', price: 1500},
+         {id: 3, title: 'Keyboard', price: 5000},
+         {id: 4, title: 'Gamepad', price: 4500},
       ];
    }
    

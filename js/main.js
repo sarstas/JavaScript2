@@ -5,6 +5,7 @@ class GoodsItem {
       this.title = title;
       this.price = price;
    }
+
    render() {
       return `<div class="products__card">
                   <h3 class="products__title">${this.title}</h3>
@@ -17,6 +18,7 @@ class GoodsItem {
 class GoodsList {
    constructor() {
       this.goods = [];
+      this.addedGoods = [];
    }
 
    fetchGoods() {
@@ -25,6 +27,12 @@ class GoodsList {
          {id: 2, title: 'Mouse', price: 1500},
          {id: 3, title: 'Keyboard', price: 5000},
          {id: 4, title: 'Gamepad', price: 4500},
+      ];
+   }
+
+   addedItems () {
+      this.addedGoods = [
+         //в этот массив будут падать товары после нажания на кнопку добавить
       ];
    }
    
@@ -38,6 +46,45 @@ class GoodsList {
    }
 }
 
+class CartItem extends GoodsItem {
+   constructor(title, price, quantity){
+      super(title, price);
+      this.quantity = quantity; 
+   }
+
+   render() {
+      return `<div class="products__card">
+                  <h3 class="products__title"> ${this.title}</h3>
+                  <span class="products__price"> ${this.price}</span>
+                  <span class="products__quantity">Количество: ${this.quantity}</span>
+                  <span class="products__cost">Стоимость: ${this.quantity * this.price}</span>
+               </div>`;
+   }
+}
+
+class CartsList extends GoodsList {          
+   constructor(addedGoods) {           
+      super(addedGoods);            //обратились к родительскому классу и постучались к массиву добавленых товаров
+   }
+
+
+   render() {
+      let listHtml = '';
+      this.addedGoods.forEach(good => {
+         const goodItem = new GoodsItem(good.title, good.price);
+         listHtml += goodItem.render();
+      });
+      document.querySelector('.products').innerHTML = listHtml;
+   }
+}
+
+const itemCart = new CartItem();
+console.log(itemCart);
+
 const list = new GoodsList();
+
+//const item = new GoodsItem();
+//console.log(item);
+
 list.fetchGoods();
 list.render();

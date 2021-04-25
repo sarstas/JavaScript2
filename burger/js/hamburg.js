@@ -35,7 +35,7 @@ class Burger {
 
 class BurgerBuilder {
    constructor(size, price, caloriesNumber) {
-
+      
    }
 
 

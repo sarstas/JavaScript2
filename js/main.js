@@ -16,13 +16,18 @@ class GoodsItem {
 }
 
 class GoodsList {
-   constructor() {
-      this.goods = [];
-      this.addedGoods = [];
+   constructor(container = '.products') {
+      this.container = container;
+      this._goods = [];
+      this._addedGoods = [];
+   }
+
+   sun() {
+      return this._goods.reduce((sum, { price }) => sum + price, 0);
    }
 
    fetchGoods() {
-      this.goods = [
+      this._goods = [
          {id: 1, title: 'Notebook', price: 20000},
          {id: 2, title: 'Mouse', price: 1500},
          {id: 3, title: 'Keyboard', price: 5000},
@@ -31,7 +36,7 @@ class GoodsList {
    }
 
    addedItems () {
-      this.addedGoods = [
+      this._addedGoods = [
          //в этот массив будут падать товары после нажания на кнопку добавить
       ];
    }

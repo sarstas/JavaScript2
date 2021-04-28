@@ -1,95 +1,116 @@
 'use strict';
 
-class GoodsItem {
-   constructor(title, price) {
-      this.title = title;
-      this.price = price;
-   }
-
-   render() {
-      return `<div class="products__card">
-                  <h3 class="products__title">${this.title}</h3>
-                  <p class="products__price">price: <span class="products__price-col">${this.price}</span> rub</p>
-                  <button class="products__btn by-btn">Add to card</button>
-               </div>`;
-   }
-}
-
-class GoodsList {
+class ProductList {
    constructor(container = '.products') {
       this.container = container;
       this._goods = [];
-      this._addedGoods = [];
+      this._allProducts = [];
+      
+      this._getProducts()
+            .then((data) => {
+               this._goods = data;
+               this._render();
+            });
    }
 
-   sun() {
-      return this._goods.reduce((sum, { price }) => sum + price, 0);
+   async _getProducts() {
+      try {
+         const response = await fetch(`${API}/catalogData.json`);
+         return await response.json();
+      } catch (error) {
+         console.log(error);
+      }
    }
 
-   fetchGoods() {
-      this._goods = [
-         {id: 1, title: 'Notebook', price: 20000},
-         {id: 2, title: 'Mouse', price: 1500},
-         {id: 3, title: 'Keyboard', price: 5000},
-         {id: 4, title: 'Gamepad', price: 4500},
-      ];
-   }
-
-   addedItems () {
-      this._addedGoods = [
-         //в этот массив будут падать товары после нажания на кнопку добавить
-      ];
-   }
-   
-   render() {
-      let listHtml = '';
-      this.goods.forEach(good => {
-         const goodItem = new GoodsItem(good.title, good.price);
-         listHtml += goodItem.render();
-      });
-      document.querySelector('.products').innerHTML = listHtml;
+   _render() {
+               const block = document.querySelector(this.container);  
+               for (const good of this._goods) {
+                     const productObject = new ProductItem(good);
+                     this._allProducts.push(productObject);
+                     block.insertAdjacentHTML('afterbegin', productObject.render());
+               }
+               block.insertAdjacentHTML('afterend', `<h3 class="">Total coast of goods</h3> `)
    }
 }
 
-class CartItem extends GoodsItem {
-   constructor(title, price, quantity){
-      super(title, price);
-      this.quantity = quantity; 
+class ProductItem{
+   constructor(product, img = 'https://via.placeholder.com/200x150') {
+         this.product_name = product.product_name;
+         this.price = product.price;
+         this.id = product.id;
+         this.img = img;
    }
 
    render() {
-      return `<div class="products__card">
-                  <h3 class="products__title"> ${this.title}</h3>
-                  <span class="products__price"> ${this.price}</span>
-                  <span class="products__quantity">Количество: ${this.quantity}</span>
-                  <span class="products__cost">Стоимость: ${this.quantity * this.price}</span>
-               </div>`;
-   }
+               return `<div class="product-item" data-id="${this.id}">
+                           <img src="${this.img}" alt="Some img">
+                           <div class="desc">
+                              <h3>${this.product_name}</h3>
+                              <p>${this.price} \u20bd</p>
+                              <button class="buy-btn">Купить</button>
+                           </div>
+                        </div>`;
+            }
+
 }
 
-class CartsList extends GoodsList {          
-   constructor(addedGoods) {           
-      super(addedGoods);            //обратились к родительскому классу и постучались к массиву добавленых товаров
-   }
+const API = 'https://raw.githubusercontent.com/GeekBrainsTutorial/online-store-api/master/responses';  
+
+let getRequest = (url) => {
+   return new Promise ((resolve, reject) => {
+      let xhr = new XMLHttpRequest();
+      xhr.open('GET', url, true);
+      xhr.onreadystatechange = () => {
+         if (xhr.readyState !== 4) return;
+         
+         if (xhr.status !== 200) {
+               reject(`Error ${xhr.status} ${xhr.statusText}`);
+         } else {
+               resolve(xhr.responseText);
+         }   
+      };
+      xhr.send();
+   });
+};
+
+getRequest (`${API}/catalogData.json`) 
+   .then(response => console.log(response))
+   .catch(error => console.log(error));
 
 
-   render() {
-      let listHtml = '';
-      this.addedGoods.forEach(good => {
-         const goodItem = new GoodsItem(good.title, good.price);
-         listHtml += goodItem.render();
-      });
-      document.querySelector('.products').innerHTML = listHtml;
-   }
-}
 
-const itemCart = new CartItem();
-console.log(itemCart);
+const pl = new ProductList();
 
-const list = new GoodsList();
+
+
+
+
+//class CartsList extends GoodList {          
+//   constructor(addedGoods) {           
+//      super(addedGoods);            //обратились к родительскому классу и постучались к массиву добавленых товаров
+//   }
+
+
+//   render() {
+//      let listHtml = '';
+//      this.addedGoods.forEach(good => {
+//         const goodItem = new GoodsItem(good.title, good.price);
+//         listHtml += goodItem.render();
+//      });
+//      document.querySelector('.products').innerHTML = listHtml;
+//   }
+//}
+
+//const itemCart = new CartItem();
+//console.log(itemCart);
+
+
 
 //const item = new GoodsItem();
 //console.log(item);
 
-list.fetchGoods();
-list.render();
+//pl.fetchGoods();
+//pl.render();
+
+
+

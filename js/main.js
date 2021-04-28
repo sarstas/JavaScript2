@@ -41,37 +41,71 @@ class ProductList {
 
 class ProductItem{
    constructor(product, img = 'https://via.placeholder.com/200x150') {
-         this.product_name = product.product_name;
+         this.productName = product.product_name;
          this.price = product.price;
          this.id = product.id;
          this.img = img;
    }
 
    render() {
-               return `<div class="product-item" data-id="${this.id}">
-                           <img src="${this.img}" alt="Some img">
-                           <div class="desc">
-                              <h3>${this.product_name}</h3>
-                              <p>${this.price} \u20bd</p>
-                              <button class="buy-btn">Купить</button>
-                           </div>
-                        </div>`;
+            return `<div class="product-item" data-id="${this.id}">
+                        <img src="${this.img}" alt="Some img">
+                        <div class="desc">
+                           <h3>${this.productName}</h3>
+                           <p>${this.price} \u20bd</p>
+                           <button class="buy-btn">Купить</button>
+                        </div>
+                     </div>`;
             }
-
 }
 
 class CartList {
    constructor(container = '.products') {
       this.container = container;
-      this._goods = [];
+      this._addedGoods = [];
       this._allProducts = [];
       
       this._getProducts()
             .then((data) => {
-               this._goods = data;
+               this._addedGoods = data;
                this._render();
             });
    }
+
+   sumTotalPrice() {
+      return this._goods.reduce((sum, { price }) => sum + price, 0);
+   }
+
+   _render() {
+      const block = document.querySelector(this.container);  
+      for (const good of this._addedGoods) {
+            const productObject = new CartItem(good);
+            this._allProducts.push(productObject);
+            block.insertAdjacentHTML('afterbegin', productObject.render());
+      }
+      block.insertAdjacentHTML('afterend', `<h3 class="">Total coast of goods</h3> ${this.sumTotalPrice()}`);
+   }
+}
+
+class CartItem {
+   constructor(product, img = 'https://via.placeholder.com/200x150') {
+         this.productName = product.product_name;
+         this.price = product.price;
+         this.id = product.id;
+         this.img = img;
+         this.quantity = 1;
+   }
+
+   render() {
+               return `<div class="product-item" data-id="${this.id}">
+                           <img src="${this.img}" alt="Some img">
+                           <div class="desc">
+                              <h3>${this.productName}</h3>
+                              <p>${this.price} \u20bd</p>
+                              <button class="buy-btn">Купить</button>
+                           </div>
+                        </div>`;
+            }
 }
 
 

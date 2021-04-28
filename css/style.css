@@ -10,10 +10,15 @@ html {
   font-size: 10px;
 }
 
-html body {
+body {
   font-family: Lato;
   font-style: normal;
   font-weight: 900;
+}
+
+img {
+  max-width: 100%;
+  height: auto;
 }
 
 button {
@@ -71,26 +76,6 @@ summary {
   margin: 3rem;
 }
 
-body {
-  font-family: 'SF Pro Display', sans-serif;
-}
-
-header {
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
-  background-color: #2f2a2d;
-  -webkit-box-pack: justify;
-      -ms-flex-pack: justify;
-          justify-content: space-between;
-  color: #fafafa;
-  padding: 30px 80px;
-}
-
-button {
-  outline: none;
-}
-
 .logo {
   text-transform: uppercase;
   font-weight: bold;
@@ -134,10 +119,6 @@ button {
           justify-content: space-between;
 }
 
-p {
-  margin: 0 0 5px 0;
-}
-
 .product-item {
   display: -webkit-box;
   display: -ms-flexbox;
@@ -150,11 +131,6 @@ p {
   border-radius: 5px;
   overflow: hidden;
   margin: 20px 0;
-}
-
-img {
-  max-width: 100%;
-  height: auto;
 }
 
 .desc {

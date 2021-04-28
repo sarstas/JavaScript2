@@ -1,4 +1,5 @@
 'use strict';
+const API = 'https://raw.githubusercontent.com/GeekBrainsTutorial/online-store-api/master/responses'; 
 
 class ProductList {
    constructor(container = '.products') {
@@ -19,7 +20,12 @@ class ProductList {
          return await response.json();
       } catch (error) {
          console.log(error);
-      }
+      } 
+
+   }
+
+   sumTotalPrice() {
+      return this._goods.reduce((sum, { price }) => sum + price, 0);
    }
 
    _render() {
@@ -29,7 +35,7 @@ class ProductList {
                      this._allProducts.push(productObject);
                      block.insertAdjacentHTML('afterbegin', productObject.render());
                }
-               block.insertAdjacentHTML('afterend', `<h3 class="">Total coast of goods</h3> `)
+               block.insertAdjacentHTML('afterend', `<h3 class="">Total coast of goods</h3> ${this.sumTotalPrice()}`)
    }
 }
 
@@ -54,9 +60,22 @@ class ProductItem{
 
 }
 
-const API = 'https://raw.githubusercontent.com/GeekBrainsTutorial/online-store-api/master/responses';  
+class CartList {
+   constructor(container = '.products') {
+      this.container = container;
+      this._goods = [];
+      this._allProducts = [];
+      
+      this._getProducts()
+            .then((data) => {
+               this._goods = data;
+               this._render();
+            });
+   }
+}
 
-let getRequest = (url) => {
+
+let getRequest = (url) => {                           //дз передалать
    return new Promise ((resolve, reject) => {
       let xhr = new XMLHttpRequest();
       xhr.open('GET', url, true);
@@ -73,9 +92,7 @@ let getRequest = (url) => {
    });
 };
 
-getRequest (`${API}/catalogData.json`) 
-   .then(response => console.log(response))
-   .catch(error => console.log(error));
+
 
 
 

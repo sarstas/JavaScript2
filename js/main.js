@@ -8,7 +8,8 @@ class List {
       this.container = container;
       this.url = url;
       this.goods = [];
-      this.allPrducts = [];
+      this.allProducts = [];
+      this.filtered = [];
       this._init();
    }
 
@@ -34,8 +35,6 @@ class List {
       for (let product of this.goods){
          console.log(this.constructor.name);
 
-         //const productObj = new this.list[this.constructor.name](product);
-
          let productObj = null;
          if (this.constructor.name === 'ProductList') productObj = new ProductItem(product);
          if (this.constructor.name === 'Cart') productObj = new CartItem(product);
@@ -46,9 +45,22 @@ class List {
          } 
 
          console.log(productObj);
-         this.allPrducts.push(productObj);
+         this.allProducts.push(productObj);
          block.insertAdjacentHTML('beforeend', productObj.render());
       }
+   }
+
+   filter(value){
+      const regexp = new RegExp(value, 'i'); //
+      this.filtered = this.allProducts.filter(product => regexp.test(product.product_name));
+      this.allProducts.forEach(el => {
+         const block = document.querySelector(`.product-item[data-id="${el.id_product}"]`);
+         if(!this.filtered.includes(el)){
+            block.classList.add('invisible');
+         } else {
+            block.classList.remove('invisible');
+         }
+      })
    }
 
    _init(){
@@ -82,6 +94,11 @@ class ProductList extends List {
          if(e.target.classList.contains('buy-btn')){
             this.cart.addProduct(e.target);
          }
+      });
+
+      document.querySelector('.search-form').addEventListener('submit', e => {
+         e.preventDefault();
+         this.filter(document.querySelector('.search-field').value);
       });
    }
 }
@@ -142,12 +159,12 @@ class Cart extends List {
          .then( data => {
             if(data.result === 1){
                let productId = +elem.dataset['id'];
-               let look = this.allProducts.find( product => product.id === productId);
-               if(look.quantity > 1) {
-                  look.quantity--;
-                  this._updateCart(look); 
+               let find = this.allProducts.find( product => product.id_product === productId);
+               if(find.quantity > 1) {
+                  find.quantity--;
+                  this._updateCart(find); 
                } else {
-                  this.allPrduct.plice(this.allProducts.indexOf(look), 1);
+                  this.allProducts.splice(this.allProducts.indexOf(find), 1);
                   document.querySelector(`.cart-item[data-id="${productId}"]`).remove();
                }
             } else {

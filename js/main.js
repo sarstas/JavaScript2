@@ -8,7 +8,7 @@ class List {
       this.container = container;
       this.url = url;
       this.goods = [];
-      this.allPrducts = [];
+      this.allProducts = [];
       this._init();
    }
 
@@ -32,21 +32,19 @@ class List {
    render() {
       const block = document.querySelector(this.container);
       for (let product of this.goods){
-         console.log(this.constructor.name);
-
          //const productObj = new this.list[this.constructor.name](product);
-
+            
          let productObj = null;
          if (this.constructor.name === 'ProductList') productObj = new ProductItem(product);
          if (this.constructor.name === 'Cart') productObj = new CartItem(product);
-         
+
          if (!productObj){
             console.log("Хрень получилась");
             return;
          } 
-
          console.log(productObj);
-         this.allPrducts.push(productObj);
+         this.allProducts.push(productObj);
+         console.log(typeof(this.allProducts));
          block.insertAdjacentHTML('beforeend', productObj.render());
       }
    }
@@ -65,7 +63,7 @@ class Item {
    }
 
    render() {
-      return ``
+      return ``;
    }
 }
 
@@ -112,13 +110,15 @@ class Cart extends List {
    }
       
    addProduct(elem) {
+      console.log(elem);
+      console.log(this.allProducts.length);
+
       this.getJson(`${API}/addToBasket.json`)
       .then( data => {
          if(data.result === 1){
             let productId = +elem.dataset['id'];
-            
+            console.log(this.allProducts);
             let find = this.allProducts.find(el => el.id_product === productId);
-            
             if(find){
                find.quantity++;
                this._updateCart(find);
@@ -140,16 +140,18 @@ class Cart extends List {
    }
 
    removeProduct(elem) {
+
       this.getJson(`${API}/deleteFromBasket.json`)
          .then( data => {
             if(data.result === 1){
                let productId = +elem.dataset['id'];
-               let look = this.allProducts.find( product => product.id === productId);
-               if(look.quantity > 1) {
-                  look.quantity--;
-                  this._updateCart(look); 
+               let find = this.allProducts.find( product => product.id_product === productId);
+               console.log("!!!!!!" + find);
+               if(find.quantity > 1) {
+                  find.quantity--;
+                  this._updateCart(find); 
                } else {
-                  this.allPrduct.plice(this.allProducts.indexOf(look), 1);
+                  this.allProducts.splice(this.allProducts.indexOf(find), 1);
                   document.querySelector(`.cart-item[data-id="${productId}"]`).remove();
                }
             } else {

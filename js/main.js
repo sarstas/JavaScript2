@@ -26,7 +26,7 @@ class List {
    }
 
    calcTotalPtice() {
-      return this._goods.reduce((sum, item) => sum + item.price, 0);
+      return this.allProducts.reduce((sum, item) => sum + item.price, 0);
    }
 
    render() {
@@ -116,7 +116,9 @@ class Cart extends List {
       .then( data => {
          if(data.result === 1){
             let productId = +elem.dataset['id'];
-            let find = this.allProducts.find(product => product.id_product === productId);   
+            
+            let find = this.allProducts.find(el => el.id_product === productId);
+            
             if(find){
                find.quantity++;
                this._updateCart(find);

@@ -25,13 +25,7 @@
     </select>
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="ea354d97-0c63-42f6-96f8-78da30497ce0" name="Default Changelist" comment="add">
-      <change beforePath="$PROJECT_DIR$/Regexp/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/Regexp/index.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/css/style.css" beforeDir="false" afterPath="$PROJECT_DIR$/css/style.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/css/style.sass" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/index.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/js/main.js" beforeDir="false" afterPath="$PROJECT_DIR$/js/main.js" afterDir="false" />
-    </list>
+    <list default="true" id="ea354d97-0c63-42f6-96f8-78da30497ce0" name="Default Changelist" comment="add" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -73,6 +67,7 @@
       <updated>1620161321128</updated>
       <workItem from="1620161322848" duration="3608000" />
       <workItem from="1620165065094" duration="351000" />
+      <workItem from="1620318253573" duration="258000" />
     </task>
     <task id="LOCAL-00001" summary="add">
       <created>1620162741277</created>
@@ -120,6 +115,10 @@
       <screen x="0" y="0" width="1366" height="768" />
     </state>
     <state x="309" y="62" key="#Inspections/0.0.1366.768@0.0.1366.768" timestamp="1620161734385" />
+    <state x="363" y="120" key="#com.intellij.openapi.updateSettings.impl.PluginUpdateInfoDialog" timestamp="1620318273378">
+      <screen x="0" y="0" width="1366" height="768" />
+    </state>
+    <state x="363" y="120" key="#com.intellij.openapi.updateSettings.impl.PluginUpdateInfoDialog/0.0.1366.768@0.0.1366.768" timestamp="1620318273378" />
     <state x="184" y="29" key="SettingsEditor" timestamp="1620164583992">
       <screen x="0" y="0" width="1366" height="768" />
     </state>

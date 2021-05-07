@@ -25,7 +25,10 @@
     </select>
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="ea354d97-0c63-42f6-96f8-78da30497ce0" name="Default Changelist" comment="add" />
+    <list default="true" id="ea354d97-0c63-42f6-96f8-78da30497ce0" name="Default Changelist" comment="add">
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/css/style.css" beforeDir="false" afterPath="$PROJECT_DIR$/css/style.css" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -54,7 +57,9 @@
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="last_opened_file_path" value="$PROJECT_DIR$" />
     <property name="settings.editor.selected.configurable" value="vcs.Git" />
+    <property name="vue.rearranger.settings.migration" value="true" />
   </component>
+  <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
   <component name="SvnConfiguration">
     <configuration />
   </component>
@@ -68,6 +73,7 @@
       <workItem from="1620161322848" duration="3608000" />
       <workItem from="1620165065094" duration="351000" />
       <workItem from="1620318253573" duration="258000" />
+      <workItem from="1620374050371" duration="1025000" />
     </task>
     <task id="LOCAL-00001" summary="add">
       <created>1620162741277</created>
@@ -80,7 +86,7 @@
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
-    <option name="version" value="2" />
+    <option name="version" value="3" />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
     <option name="TAB_STATES">
@@ -109,31 +115,5 @@
   <component name="VcsManagerConfiguration">
     <MESSAGE value="add" />
     <option name="LAST_COMMIT_MESSAGE" value="add" />
-  </component>
-  <component name="WindowStateProjectService">
-    <state x="309" y="62" key="#Inspections" timestamp="1620161734385">
-      <screen x="0" y="0" width="1366" height="768" />
-    </state>
-    <state x="309" y="62" key="#Inspections/0.0.1366.768@0.0.1366.768" timestamp="1620161734385" />
-    <state x="363" y="120" key="#com.intellij.openapi.updateSettings.impl.PluginUpdateInfoDialog" timestamp="1620318273378">
-      <screen x="0" y="0" width="1366" height="768" />
-    </state>
-    <state x="363" y="120" key="#com.intellij.openapi.updateSettings.impl.PluginUpdateInfoDialog/0.0.1366.768@0.0.1366.768" timestamp="1620318273378" />
-    <state x="184" y="29" key="SettingsEditor" timestamp="1620164583992">
-      <screen x="0" y="0" width="1366" height="768" />
-    </state>
-    <state x="184" y="29" key="SettingsEditor/0.0.1366.768@0.0.1366.768" timestamp="1620164583992" />
-    <state x="275" y="117" key="Vcs.Push.Dialog.v2" timestamp="1620162766438">
-      <screen x="0" y="0" width="1366" height="768" />
-    </state>
-    <state x="275" y="117" key="Vcs.Push.Dialog.v2/0.0.1366.768@0.0.1366.768" timestamp="1620162766438" />
-    <state x="463" y="97" key="git4idea.branch.GitSmartOperationDialog" timestamp="1620162636407">
-      <screen x="0" y="0" width="1366" height="768" />
-    </state>
-    <state x="463" y="97" key="git4idea.branch.GitSmartOperationDialog/0.0.1366.768@0.0.1366.768" timestamp="1620162636407" />
-    <state x="339" y="172" key="run.anything.popup" timestamp="1620161369781">
-      <screen x="0" y="0" width="1366" height="768" />
-    </state>
-    <state x="339" y="172" key="run.anything.popup/0.0.1366.768@0.0.1366.768" timestamp="1620161369781" />
   </component>
 </project>

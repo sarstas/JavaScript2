@@ -25,9 +25,9 @@
     </select>
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="ea354d97-0c63-42f6-96f8-78da30497ce0" name="Default Changelist" comment="add">
+    <list default="true" id="ea354d97-0c63-42f6-96f8-78da30497ce0" name="Default Changelist" comment="add Vue component">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/css/style.css" beforeDir="false" afterPath="$PROJECT_DIR$/css/style.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Regexp/js/main.js" beforeDir="false" afterPath="$PROJECT_DIR$/Regexp/js/main.js" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -73,7 +73,7 @@
       <workItem from="1620161322848" duration="3608000" />
       <workItem from="1620165065094" duration="351000" />
       <workItem from="1620318253573" duration="258000" />
-      <workItem from="1620374050371" duration="1025000" />
+      <workItem from="1620374050371" duration="7804000" />
     </task>
     <task id="LOCAL-00001" summary="add">
       <created>1620162741277</created>
@@ -82,7 +82,14 @@
       <option name="project" value="LOCAL" />
       <updated>1620162741277</updated>
     </task>
-    <option name="localTasksCounter" value="2" />
+    <task id="LOCAL-00002" summary="add Vue component">
+      <created>1620375384323</created>
+      <option name="number" value="00002" />
+      <option name="presentableId" value="LOCAL-00002" />
+      <option name="project" value="LOCAL" />
+      <updated>1620375384323</updated>
+    </task>
+    <option name="localTasksCounter" value="3" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -114,6 +121,7 @@
   </component>
   <component name="VcsManagerConfiguration">
     <MESSAGE value="add" />
-    <option name="LAST_COMMIT_MESSAGE" value="add" />
+    <MESSAGE value="add Vue component" />
+    <option name="LAST_COMMIT_MESSAGE" value="add Vue component" />
   </component>
 </project>

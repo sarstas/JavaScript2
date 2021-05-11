@@ -1,21 +1,76 @@
 'use strict';
-const products = [
-   {id: 1, title: 'Notebook', price: 20000},
-   {id: 2, title: 'Mouse', price: 1500},
-   {id: 3, title: 'Keyboard', price: 5000},
-   {id: 4, title: 'Gamepad', price: 4500},
-];
 
-const renderProduct = (title = 'Temporary plug', price = 'Temporary plug') => {
-   return `<div class="products__card">
-            <h3 class="products__title">${title}</h3>
-            <p class="products__price">price: <span class="products__price-col">${price}</span> rub</p>
-            <button class="products__btn by-btn">Add to card</button>
-         </div>`;
-};
+const API = 'https://raw.githubusercontent.com/GeekBrainsTutorial/online-store-api/master/responses';
 
-const renderProducts = (list) => {
-   document.querySelector('.products').innerHTML = list.map((item) => renderProduct(item.title, item.price)).join("");;
-};
+const app = new Vue({
+   el: '#app',
+   data: {
+      catalogUrl: '/catalogData.json',
+      products: [],
+      cartUrl: '/getBasket.json',
+      imgCatalog: 'https://placehold.it/200x150',
+      imgCart: 'https://placehold.it/50x100',
+      filtered: [],
+      cartItems: [],
+      searchLine: '',
+      showCart: false,
+   },
+   methods: {
+      getJson(url){
+         return fetch(url)
+             .then(result => result.json())
+             .catch(error => {
+                console.log(error);
+             })
+      },
+       addProduct(product){
+          this.getJson(`${API}/addToBasket.json`)
+              .then(data => {
+                  if(data.result === 1){
+                      let find = this.cartItems.find(el => el.id_product === product.id_product);
+                      if(find){
+                          find.quantity++;
+                      } else {
+                          let prod = Object.assign({quantity: 1}, product);
+                          this.cartItems.push(prod)
+                      }
+                  } else {
+                      alert('Error');
+                  }
+              })
+      },
+       remove(item) {
+           this.getJson(`${API}/deleteFromBasket.json`)
+               .then(data => {
+                   if(data.result === 1) {
+                       if(item.quantity>1){
+                           item.quantity--;
+                       } else {
+                           this.cartItems.splice(this.cartItems.indexOf(item), 1)
+                       }
+                   }
+               })
+       },
+       filter(){
+           let regexp = new RegExp(this.searchLine, 'i');
+           this.filtered = this.products.filter(el => regexp.test(el.product_name));
+       }
+   },
 
-renderProducts(products);
+   mounted(){
+       this.getJson(`${API + this.cartUrl}`)
+           .then(data => {
+               for(let el of data.contents){
+                   this.cartItems.push(el);
+               }
+           });
+
+       this.getJson(`${API + this.catalogUrl}`)
+           .then(data => {
+               for(let el of data){
+                   this.products.push(el);
+                   this.filtered.push(el);
+               }
+           });
+   },
+});

@@ -25,16 +25,15 @@
     </select>
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="ea354d97-0c63-42f6-96f8-78da30497ce0" name="Default Changelist" comment="lesson-5 done">
-      <change afterPath="$PROJECT_DIR$/js/CartComp.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/js/ProducComp.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/lesson-5/index.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/lesson-5/js/app.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/lesson-5/js/components.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/lesson-5/js/moduls.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
+    <list default="true" id="ea354d97-0c63-42f6-96f8-78da30497ce0" name="Default Changelist" comment="lesson-6 old version">
+      <change afterPath="$PROJECT_DIR$/js/ErrorComp.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/js/Search.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/css/style.css" beforeDir="false" afterPath="$PROJECT_DIR$/css/style.css" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/index.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/js/CartComp.js" beforeDir="false" afterPath="$PROJECT_DIR$/js/CartComp.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/js/ProducComp.js" beforeDir="false" afterPath="$PROJECT_DIR$/js/ProducComp.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/js/main.js" beforeDir="false" afterPath="$PROJECT_DIR$/js/main.js" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -76,11 +75,12 @@
     <option name="showLibraryContents" value="true" />
   </component>
   <component name="PropertiesComponent">
+    <property name="ASKED_ADD_EXTERNAL_FILES" value="true" />
     <property name="ASKED_SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
     <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
+    <property name="last_opened_file_path" value="$USER_HOME$/Downloads/lesson6/lesson6/project/project_normal_variant/index.html" />
     <property name="settings.editor.selected.configurable" value="vcs.Git" />
     <property name="vue.rearranger.settings.migration" value="true" />
   </component>
@@ -100,7 +100,9 @@
       <workItem from="1620318253573" duration="258000" />
       <workItem from="1620374050371" duration="24686000" />
       <workItem from="1620763777545" duration="7567000" />
-      <workItem from="1620906162322" duration="4541000" />
+      <workItem from="1620906162322" duration="6711000" />
+      <workItem from="1620928481979" duration="8006000" />
+      <workItem from="1621078606053" duration="5983000" />
     </task>
     <task id="LOCAL-00001" summary="add">
       <created>1620162741277</created>
@@ -130,7 +132,14 @@
       <option name="project" value="LOCAL" />
       <updated>1620762476914</updated>
     </task>
-    <option name="localTasksCounter" value="5" />
+    <task id="LOCAL-00005" summary="lesson-6 old version">
+      <created>1620921390525</created>
+      <option name="number" value="00005" />
+      <option name="presentableId" value="LOCAL-00005" />
+      <option name="project" value="LOCAL" />
+      <updated>1620921390525</updated>
+    </task>
+    <option name="localTasksCounter" value="6" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -191,9 +200,11 @@
     <option name="oldMeFiltersMigrated" value="true" />
   </component>
   <component name="VcsManagerConfiguration">
+    <option name="ADD_EXTERNAL_FILES_SILENTLY" value="true" />
     <MESSAGE value="add" />
     <MESSAGE value="add Vue component" />
     <MESSAGE value="lesson-5 done" />
-    <option name="LAST_COMMIT_MESSAGE" value="lesson-5 done" />
+    <MESSAGE value="lesson-6 old version" />
+    <option name="LAST_COMMIT_MESSAGE" value="lesson-6 old version" />
   </component>
 </project>
